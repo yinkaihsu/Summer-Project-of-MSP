@@ -8,279 +8,280 @@ Created by <font color="#006699">**Ian Hsu**</font> in MSP Hackathon
 ---
 
 ## Data from Kaggle
-Resource: [Speed Dating Experient](https://www.kaggle.com/annavictoria/speed-dating-experiment)
+### Resource
+[Speed Dating Experient from Kaggle](https://www.kaggle.com/annavictoria/speed-dating-experiment)
 
-Original Data:
-*    iid
+### Original Data
+*    iid  
 unique subject number, group(wave id gender)
-*    id
+*    id  
 subject number within wave
-*    gender
+*    gender  
 Female=0, Male=1
-*    idg
+*    idg  
 subject number within gender, group(id gender)
-*    condtn:
+*    condtn  
 	1=limited choice, 2=extensive choice
-*    wave:
-Num, Male, Female, **Note**
-1, 10, 10
-2, 16, 19
-3, 10, 9
-4, 18, 18
-5, 10, 10, **undergrads**
-6, 5, 5, **1-10 scale**
-7, 16, 16, **1-10 scale**
-8, 10, 10, **1-10 scale**
-9, 20, 20, **1-10 scale**
-10, 9, 9
-11, 21, 21
-12, 14, 15, **Budget: only allowed to yes yes to 50% of the people that met**
-13, 9, 10, **Different M.C.**
-14, 18, 20, **Different M.C.**
-15, 19, 18
-16, 8, 6
-17, 14, 10
-18, 6, 6, **brought a magazine**
-19, 15, 16, **brought a book**
-20, 8, 6, **brought a book**
+*    wave  
+Num, Male, Female, **Note**  
+1, 10, 10  
+2, 16, 19  
+3, 10, 9  
+4, 18, 18  
+5, 10, 10, **undergrads**  
+6, 5, 5, **1-10 scale**  
+7, 16, 16, **1-10 scale**  
+8, 10, 10, **1-10 scale**  
+9, 20, 20, **1-10 scale**  
+10, 9, 9  
+11, 21, 21  
+12, 14, 15, **Budget: only allowed to yes yes to 50% of the people that met**  
+13, 9, 10, **Different M.C.**  
+14, 18, 20, **Different M.C.**  
+15, 19, 18  
+16, 8, 6  
+17, 14, 10  
+18, 6, 6, **brought a magazine**  
+19, 15, 16, **brought a book**  
+20, 8, 6, **brought a book**  
 21, 22, 22, **brought a magazine**
-*    round
+*    round  
 number of people that met in wave
-*    position
+*    position  
 station number where met partner 
-*    positin1
+*    positin1  
 station number where started 
-*    order
+*    order  
 the number of date that night when met partner
-*    partner
+*    partner  
 partner’s id number the night of event
-*    pid
+*    pid  
 partner’s iid number
-*    match
+*    match  
 1=yes, 0=no
-*    int_corr
+*    int_corr  
 correlation between participant’s and partner’s ratings of interests in Time 1
-*    samerace
+*    samerace  
 participant and the partner were the same race. 1= yes, 0=no
-*    age_o
+*    age_o  
 age of partner
-*    race_o
+*    race_o  
 race of partner
-*    pf_o_att, pf_o_sin, pf_o_int, pf_o_fun, pf_o_amb, pf_o_sha
+*    pf_o_att, pf_o_sin, pf_o_int, pf_o_fun, pf_o_amb, pf_o_sha  
 partner’s stated preference at Time 1 (attr1_1) for all 6 attributes
-*    dec_o
+*    dec_o  
 decision of partner the night of event
-*    attr_o, sinc_o, intel_o, fun_o, amb_o, shar_o
+*    attr_o, sinc_o, intel_o, fun_o, amb_o, shar_o  
 rating by partner the night of the event, for all 6 attributes
-*    like_o
+*    like_o  
 rating by partner the night of the event, for how much did your partner like you? (1=don't like at all, 10=like a lot)
-*    prob_o
+*    prob_o  
 rating by partner the night of the event, for how probable did your partner think you will say 'yes' to him/her? (1=not probable, 10=extremely probable)
-*    met_o
+*    met_o  
 Have your partner met you before? (1=yes, 2=no)
 
-==signup/Time1 [Survey filled out by students that are registering for the event.]==
+### signup/Time1 [Survey filled out by students that are registering for the event.]
 *    age
-*    field
+*    field  
 field of study
-*    field_cd
-field coded: 
-1=Law
-2=Math
-3=Social Science, Psychologist 
-4=Medical Science, Pharmaceuticals, and Bio Tech 
-5=Engineering
-6=English/Creative Writing/ Journalism 
-7=History/Religion/Philosophy 
-8=Business/Econ/Finance 
-9=Education, Academia 
-10=Biological Sciences/Chemistry/Physics
-11=Social Work 
-12=Undergrad/undecided 
-13=Political Science/International Affairs 
-14=Film
-15=Fine Arts/Arts Administration
-16=Languages
-17=Architecture
-18=Other
-*    undergrd
+*    field_cd  
+field coded:  
+1=Law  
+2=Math  
+3=Social Science, Psychologist  
+4=Medical Science, Pharmaceuticals, and Bio Tech  
+5=Engineering  
+6=English/Creative Writing/ Journalism  
+7=History/Religion/Philosophy  
+8=Business/Econ/Finance  
+9=Education, Academia  
+10=Biological Sciences/Chemistry/Physics  
+11=Social Work  
+12=Undergrad/undecided  
+13=Political Science/International Affairs  
+14=Film  
+15=Fine Arts/Arts Administration  
+16=Languages  
+17=Architecture  
+18=Other 
+*    undergrd  
 school attended for undergraduate degree
-*    mn_sat
+*    mn_sat  
 Median SAT score for the undergraduate institution where attended. Taken from Barron’s 25th Edition college profile book. Proxy for intelligence.
-*    tuition
+*    tuition  
 Tuition listed for each response to undergrad in Barron’s 25th Edition college profile book.
-*    race
-Black/African American=1
-European/Caucasian-American=2
-Latino/Hispanic American=3
-Asian/Pacific Islander/Asian-American=4
-Native American=5
+*    race  
+Black/African American=1  
+European/Caucasian-American=2  
+Latino/Hispanic American=3  
+Asian/Pacific Islander/Asian-American=4  
+Native American=5  
 Other=6
-*    imprace
+*    imprace  
 How important is it to you (on a scale of 1-10) that a person you date be of the same racial/ethnic background?
-*    imprelig
+*    imprelig  
 How important is it to you (on a scale of 1-10) that a person you date be of the same religious background?
-*    from
+*    from  
 Where are you from originally (before coming to Columbia)? 
-*    zipcode
+*    zipcode  
 What was the zip code of the area where you grew up? 
-*    income
-Median household income based on zipcode using the Census Bureau website:
-http://venus.census.gov/cdrom/lookup/CMD=LIST/DB=C90STF3B/LEV=ZIP 
+*    income  
+Median household income based on zipcode using the Census Bureau website:  
+http://venus.census.gov/cdrom/lookup/CMD=LIST/DB=C90STF3B/LEV=ZIP  
 When there is no income it means that they are either from abroad or did not enter their zip code.
-*    goal
-What is your primary goal in participating in this event: 
-Seemed like a fun night out=1
-To meet new people=2
-To get a date=3
-Looking for a serious relationship=4
-To say I did it=5
+*    goal  
+What is your primary goal in participating in this event:  
+Seemed like a fun night out=1  
+To meet new people=2  
+To get a date=3  
+Looking for a serious relationship=4  
+To say I did it=5  
 Other=6
-*    date
-In general, how frequently do you go on dates:
-Several times a week=1
-Twice a week=2
-Once a week=3
-Twice a month=4
-Once a month=5
-Several times a year=6
+*    date  
+In general, how frequently do you go on dates:  
+Several times a week=1  
+Twice a week=2  
+Once a week=3  
+Twice a month=4  
+Once a month=5  
+Several times a year=6  
 Almost never=7
-*    go_out
-How often do you go out (not necessarily on dates):
-Several times a week=1
-Twice a week=2
-Once a week=3
-Twice a month=4
-Once a month=5
-Several times a year=6
+*    go_out
+How often do you go out (not necessarily on dates):  
+Several times a week=1  
+Twice a week=2  
+Once a week=3  
+Twice a month=4  
+Once a month=5  
+Several times a year=6  
 Almost never=7
-*    career
+*    career  
 What is your intended career
-*    career_c
-career coded:
-1=Lawyer 
-2=Academic/Research 
-3=Psychologist 
-4=Doctor/Medicine 
-5=Engineer 
-6=Creative Arts/Entertainment 
-7=Banking/Consulting/Finance/Marketing/Business/CEO/Entrepreneur/Admin 
-8=Real Estate 
-9=International/Humanitarian Affairs 
-10=Undecided 
-11=Social Work
-12=Speech Pathology
-13=Politics
-14=Pro sports/Athletics
-15=Other
-16=Journalism
+*    career_c  
+career coded:  
+1=Lawyer  
+2=Academic/Research  
+3=Psychologist  
+4=Doctor/Medicine  
+5=Engineer  
+6=Creative Arts/Entertainment  
+7=Banking/Consulting/Finance/Marketing/Business/CEO/Entrepreneur/Admin  
+8=Real Estate  
+9=International/Humanitarian Affairs  
+10=Undecided  
+11=Social Work  
+12=Speech Pathology  
+13=Politics  
+14=Pro sports/Athletics  
+15=Other  
+16=Journalism  
 17=Architecture
-*    How interested are you in the following activities, on a scale of 1-10?
-        *    sports
-        Playing sports/athletics
-        *    tvsports
-        Watching sports
-        *    exercise
-        Body building/exercising
-        *    dining
-        Dining out
-        *    museums
-        Museums/galleries
-        *    art
-        Art
-        *    hiking
-        Hiking/camping
-        *    gaming
-        Gaming
-        *    clubbing
-        Dancing/clubbing
-        *    reading
-        Reading
-        *    tv
-        Watching TV
-        *    theater
-        Theater
-        *    movies
-        Movies
-        *    concerts
-        Going to concerts
-        *    music
-        Music
-        *    shopping
-        Shopping
-        *    yoga
-        Yoga/meditation
-*    exphappy
+*    How interested are you in the following activities, on a scale of 1-10?
+	*    sports  
+	Playing sports/athletics
+	*    tvsports  
+	Watching sports
+	*    exercise  
+	Body building/exercising
+	*    dining  
+	Dining out
+	*    museums  
+	Museums/galleries
+	*    art  
+	Art
+	*    hiking  
+	Hiking/camping
+	*    gaming  
+	Gaming
+	*    clubbing  
+	Dancing/clubbing
+	*    reading  
+	Reading
+	*    tv  
+	Watching TV
+	*    theater  
+	Theater
+	*    movies  
+	Movies
+	*    concerts  
+	Going to concerts
+	*    music  
+	Music
+	*    shopping  
+	Shopping
+	*    yoga  
+	Yoga/meditation
+*    exphappy  
 Overall, on a scale of 1-10, how happy do you expect to be with the people you meet during the speed-dating event?
-*    expnum
+*    expnum  
 Out of the 20 people you will meet, how many do you expect will be interested in dating you?
-*    We want to know what you look for in the opposite sex. Please rate the importance of the following attributes in a potential date.
-<font color="red">Waves 6-9: 1-10 scale (1=not at all important, 10=extremely important)
-Waves 1-5, 10-21: Give more points to important attributes and fewer points to not important attributes. Total points must equal 100.</font>
-        *    attr1_1 
-        Attractive
-        *    sinc1_1
-        Sincere
-        *    intel1_1
-        Intelligent
-        *    fun1_1
-        Fun
-        *    amb1_1
-        Ambitious
-        *    shar1_1
-        Has shared interests/hobbies
-*    Now we want to know what you think MOST of your fellow men/women look for in the opposite sex. Please rate the importance of the following attributes.
-<font color="red">Waves 6-9: 1-10 scale (1=not at all important, 10=extremely important)
-Waves 1-5, 10-21: Give more points to important attributes and fewer points to not important attributes. Total points must equal 100.</font>
-        *    attr4_1
-        Attractive
-        *    sinc4_1
-        Sincere
-        *    intel4_1
-        Intelligent
-        *    fun4_1
-        Fun
-        *    amb4_1
-        Ambitious
-        *    shar4_1
-        Shared Interests/Hobbies
-*    What do you think the opposite sex looks for in a date? Please rate the importance of the following attributes.
-<font color="red">Waves 6-9: 1-10 scale (1=not at all important, 10=extremely important)
-Waves 1-5, 10-21: Give more points to important attributes and fewer points to not important attributes. Total points must equal 100.</font>
-        *    attr2_1
-        Attractive
-        *    sinc2_1
-        Sincere
-        *    intel2_1
-        Intelligent
-        *    fun2_1
-        Fun
-        *    amb2_1
-        Ambitious
-        *    shar2_1
-        Shared Interests/Hobbies
+*    We want to know what you look for in the opposite sex. Please rate the importance of the following attributes in a potential date.  
+**Waves 6-9: 1-10 scale (1=not at all important, 10=extremely important)  
+Waves 1-5, 10-21: Give more points to important attributes and fewer points to not important attributes. Total points must equal 100.**
+	*    attr1_1  
+	Attractive
+        *    sinc1_1  
+	Sincere
+        *    intel1_1  
+	Intelligent
+        *    fun1_1  
+	Fun
+        *    amb1_1  
+	Ambitious
+        *    shar1_1  
+	Has shared interests/hobbies
+*    Now we want to know what you think MOST of your fellow men/women look for in the opposite sex. Please rate the importance of the following attributes.  
+**Waves 6-9: 1-10 scale (1=not at all important, 10=extremely important)  
+Waves 1-5, 10-21: Give more points to important attributes and fewer points to not important attributes. Total points must equal 100.**
+        *    attr4_1  
+	Attractive
+        *    sinc4_1  
+	Sincere
+        *    intel4_1  
+	Intelligent
+        *    fun4_1  
+	Fun
+        *    amb4_1  
+	Ambitious
+        *    shar4_1  
+	Shared Interests/Hobbies
+*    What do you think the opposite sex looks for in a date? Please rate the importance of the following attributes.  
+**Waves 6-9: 1-10 scale (1=not at all important, 10=extremely important)  
+Waves 1-5, 10-21: Give more points to important attributes and fewer points to not important attributes. Total points must equal 100.**
+        *    attr2_1  
+	Attractive
+        *    sinc2_1  
+	Sincere
+        *    intel2_1  
+	Intelligent
+        *    fun2_1  
+	Fun
+        *    amb2_1  
+	Ambitious
+        *    shar2_1  
+	Shared Interests/Hobbies
 *    How do you think you measure up? Please rate your opinion of your own attributes, on a scale of 1-10.
-        *    attr3_1
-        Attractive
-        *    sinc3_1
-        Sincere
-        *    intel3_1
-        Intelligent
-        *    fun3_1
-        Fun
-        *    amb3_1
-        Ambitious
+        *    attr3_1  
+	Attractive
+        *    sinc3_1  
+	Sincere
+        *    intel3_1  
+	Intelligent
+        *    fun3_1  
+	Fun
+        *    amb3_1  
+	Ambitious
 *    And finally, how do you think others perceive you? Please rate yourself how you think others would rate you on each of the following attributes, on a scale of 1-10 (1=awful, 10=great).
-        *    attr5_1
-        Attractive
-        *    sinc5_1
-        Sincere
-        *    intel5_1
-        Intelligent
-        *    fun5_1
-        Fun
-        *    amb5_1
-        Ambitious
+        *    attr5_1  
+	Attractive
+        *    sinc5_1  
+	Sincere
+        *    intel5_1  
+	Intelligent
+        *    fun5_1  
+	Fun
+        *    amb5_1  
+	Ambitious
 
 ==Scorecard [Filled out by subjects after each "date" during the event.]==
 *    Indicate whether or not you would like to see him or her again. (1=yes, 0=no)
