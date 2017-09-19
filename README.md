@@ -3,7 +3,7 @@ This is the summer project of Microsoft Student Partners 12th.
 
 2017 / 08 / 02
 
-Created by <font color="#006699">**Ian Hsu**</font> in MSP 12th
+Created by <font color="blue">**Ian Hsu**</font> in MSP 12th
 
 ---
 
@@ -29,17 +29,17 @@ MSP 12th 組員
 
 ----
 
-1. [林恒卲](https://www.facebook.com/profile.php?id=100006819931682) (國立宜蘭大學)
-擅長語言: C#, C, html, jQuery
-
-2. [徐英愷](https://www.facebook.com/profile.php?id=100001565542529) (國立成功大學)
+1. [徐英愷](https://www.facebook.com/profile.php?id=100001565542529) (國立成功大學)
 擅長語言: R, Python
 
-3. [辛宥言](https://www.facebook.com/profile.php?id=100002248520215) (國立交通大學)
+2. [辛宥言](https://www.facebook.com/profile.php?id=100002248520215) (國立交通大學)
 擅長語言: C, C++, PHP, Java
 
-4. [潘珠峰](https://www.facebook.com/panvufg) (國立清華大學)
+3. [潘珠峰](https://www.facebook.com/panvufg) (國立清華大學)
 擅長語言: Python, R
+
+4. [林恒卲](https://www.facebook.com/profile.php?id=100006819931682) (國立宜蘭大學)
+擅長語言: C#, C, html, jQuery
 
 ---
 
