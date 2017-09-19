@@ -3,24 +3,7 @@ This is the summer project of Microsoft Student Partners 12th.
 
 2017 / 08 / 02
 
-Created by <font color="blue">**Ian Hsu**</font> in MSP 12th
-
----
-
-## Timetable
-預計時程
-
-----
-
-*    8/6 23:59 前
-        *    簡報上傳
-        *    內容包含 idea, 預計使用的微軟服務及各組員的預計分工
-
-*    8/26 - 27
-        *    MSP Hackathon 把想像變成現實
-
-*    8/28
-        *    Summer Project Demo 日
+Created by <font color="#006699">**Ian Hsu**</font> in MSP 12th
 
 ---
 
@@ -107,6 +90,19 @@ MSP 12th 組員
         *    單身幫幫我
 *    HackNTU Team
         *    單身透視鏡 by [林恒卲](https://www.facebook.com/profile.php?id=100006819931682), [辛宥言](https://www.facebook.com/profile.php?id=100002248520215), [廖梵儒](https://www.facebook.com/oacgodkl21), [徐英愷](https://www.facebook.com/profile.php?id=100001565542529), [劉奕恩](https://www.facebook.com/ianliu.com.tw) in HackNTU
+
+---
+
+## Timetable
+預計時程
+
+----
+
+*    8/26 - 27
+        *    MSP Hackathon 把想像變成現實
+
+*    8/28
+        *    Summer Project Demo 日
 
 ---
 
