@@ -87,9 +87,8 @@ MSP 12th 組員
 ----
 
 *    Facebook ChatBot
-
-        *    利用Facebook ChatBot [S2D](https://www.facebook.com/S2D-1965314743704219/) 來呈現 **單身透視鏡**, **單身遠離我**, **單身分析師**, **單身配對機**, **單身幫幫我** 等功能
-                *    使用技術: Microsoft Bot Framework
+        *    利用Facebook ChatBot [S2D](https://www.facebook.com/S2D-1965314743704219/) 來呈現 **單身透視鏡**, **單身遠離我**, **單身分析師**, **單身配對機**, **單身幫幫我** 等功能
+                *    使用技術: Microsoft Bot Framework
 
 ---
 
