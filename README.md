@@ -3,7 +3,7 @@ This is the summer project of Microsoft Student Partners 12th.
 
 2017 / 08 / 02
 
-Created by <font color="#006699">**Ian Hsu**</font> in MSP 12th
+Created and Powered by <font color="#006699">**Ian Hsu**</font> in MSP 12th
 
 ---
 
