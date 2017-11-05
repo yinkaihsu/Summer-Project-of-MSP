@@ -15,6 +15,8 @@ using System.IO;
 using Microsoft.ProjectOxford.Face;
 using Newtonsoft.Json.Linq;
 using System.Data.SqlClient;
+using MySql.Data;
+using System.Data.Odbc;
 
 namespace Single2Double
 {
@@ -45,10 +47,13 @@ namespace Single2Double
         {
             //連接資料庫
             var cb = new SqlConnectionStringBuilder();
-            cb.DataSource = "s2dchat.database.windows.net";
-            cb.UserID = "yezifa2005";
-            cb.Password = "E.860527e";
-            cb.InitialCatalog = "S2D";
+            cb.DataSource = "s2d.database.windows.net";
+            cb.UserID = "yinkaihsu";
+            cb.Password = "Ian199412130@yahoo.com.tw";
+            cb.InitialCatalog = "single2double";
+
+            //var cb = new OdbcConnection("DRIVER={MySQL ODBC 5.3 unicode Driver}; Server=single2double.mysql.database.azure.com; Port=3306;" +
+            //" Database=single2double; Uid=yinkaihsu@single2double; Pwd=Ian199412130@yahoo.com.tw; sslverify=0; Option=3;MULTI_STATEMENTS=1");
 
             Activity reply = activity.CreateReply();
             if (activity.Type == ActivityTypes.Message)
@@ -88,10 +93,11 @@ namespace Single2Double
                         {
                             //建立資料庫連線
                             connection.Open();
-                            string sql = "INSERT INTO [dbo].[Message] ([id],[question],[message]) VALUES ('" + ChanData3 + "',1,'" + inputValues[0, 0] + "')";
+                            string sql = "INSERT INTO [single2double].[match_analysis] ([id],[question],[answer]) VALUES ('" + ChanData3 + "',1,'" + inputValues[0, 0] + "')";
                             //撰寫query
                             SqlCommand insertValue = new SqlCommand(sql, connection);
                             insertValue.ExecuteNonQuery();
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -119,10 +125,11 @@ namespace Single2Double
                         {
                             //建立資料庫連線
                             connection.Open();
-                            string sql = "INSERT INTO [dbo].[Message] ([id],[question],[message]) VALUES ('" + ChanData3 + "',2,'" + inputValues[0, 3] + "')";
+                            string sql = "INSERT INTO [single2double].[match_analysis] ([id],[question],[answer]) VALUES ('" + ChanData3 + "',2,'" + inputValues[0, 3] + "')";
                             //撰寫query
                             SqlCommand insertValue = new SqlCommand(sql, connection);
                             insertValue.ExecuteNonQuery();
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -152,10 +159,11 @@ namespace Single2Double
                         {
                             //建立資料庫連線
                             connection.Open();
-                            string sql = "INSERT INTO [dbo].[Message] ([id],[question],[message]) VALUES ('" + ChanData3 + "',3,'" + inputValues[0, 4] + "')";
+                            string sql = "INSERT INTO [single2double].[match_analysis] ([id],[question],[answer]) VALUES ('" + ChanData3 + "',3,'" + inputValues[0, 4] + "')";
                             //撰寫query
                             SqlCommand insertValue = new SqlCommand(sql, connection);
                             insertValue.ExecuteNonQuery();
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -185,10 +193,11 @@ namespace Single2Double
                         {
                             //建立資料庫連線
                             connection.Open();
-                            string sql = "INSERT INTO [dbo].[Message] ([id],[question],[message]) VALUES ('" + ChanData3 + "',4,'" + inputValues[0, 5] + "')";
+                            string sql = "INSERT INTO [single2double].[match_analysis] ([id],[question],[answer]) VALUES ('" + ChanData3 + "',4,'" + inputValues[0, 5] + "')";
                             //撰寫query
                             SqlCommand insertValue = new SqlCommand(sql, connection);
                             insertValue.ExecuteNonQuery();
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -218,10 +227,11 @@ namespace Single2Double
                         {
                             //建立資料庫連線
                             connection.Open();
-                            string sql = "INSERT INTO [dbo].[Message] ([id],[question],[message]) VALUES ('" + ChanData3 + "',5,'" + inputValues[0, 6] + "')";
+                            string sql = "INSERT INTO [single2double].[match_analysis] ([id],[question],[answer]) VALUES ('" + ChanData3 + "',5,'" + inputValues[0, 6] + "')";
                             //撰寫query
                             SqlCommand insertValue = new SqlCommand(sql, connection);
                             insertValue.ExecuteNonQuery();
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -251,10 +261,11 @@ namespace Single2Double
                         {
                             //建立資料庫連線
                             connection.Open();
-                            string sql = "INSERT INTO [dbo].[Message] ([id],[question],[message]) VALUES ('" + ChanData3 + "',6,'" + inputValues[0, 7] + "')";
+                            string sql = "INSERT INTO [single2double].[match_analysis] ([id],[question],[answer]) VALUES ('" + ChanData3 + "',6,'" + inputValues[0, 7] + "')";
                             //撰寫query
                             SqlCommand insertValue = new SqlCommand(sql, connection);
                             insertValue.ExecuteNonQuery();
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -284,10 +295,11 @@ namespace Single2Double
                         {
                             //建立資料庫連線
                             connection.Open();
-                            string sql = "INSERT INTO [dbo].[Message] ([id],[question],[message]) VALUES ('" + ChanData3 + "',7,'" + inputValues[0, 8] + "')";
+                            string sql = "INSERT INTO [single2double].[match_analysis] ([id],[question],[answer]) VALUES ('" + ChanData3 + "',7,'" + inputValues[0, 8] + "')";
                             //撰寫query
                             SqlCommand insertValue = new SqlCommand(sql, connection);
                             insertValue.ExecuteNonQuery();
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -317,10 +329,11 @@ namespace Single2Double
                         {
                             //建立資料庫連線
                             connection.Open();
-                            string sql = "INSERT INTO [dbo].[Message] ([id],[question],[message]) VALUES ('" + ChanData3 + "',8,'" + inputValues[0, 9] + "')";
+                            string sql = "INSERT INTO [single2double].[match_analysis] ([id],[question],[answer]) VALUES ('" + ChanData3 + "',8,'" + inputValues[0, 9] + "')";
                             //撰寫query
                             SqlCommand insertValue = new SqlCommand(sql, connection);
                             insertValue.ExecuteNonQuery();
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -350,10 +363,11 @@ namespace Single2Double
                         {
                             //建立資料庫連線
                             connection.Open();
-                            string sql = "INSERT INTO [dbo].[Message] ([id],[question],[message]) VALUES ('" + ChanData3 + "',9,'" + inputValues[0, 10] + "')";
+                            string sql = "INSERT INTO [single2double].[match_analysis] ([id],[question],[answer]) VALUES ('" + ChanData3 + "',9,'" + inputValues[0, 10] + "')";
                             //撰寫query
                             SqlCommand insertValue = new SqlCommand(sql, connection);
                             insertValue.ExecuteNonQuery();
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -371,14 +385,15 @@ namespace Single2Double
                             connection.Open();
                             //撰寫query
                             StringBuilder sb1 = new StringBuilder();
-                            sb1.Append("SELECT [message] ");
-                            sb1.Append("FROM [dbo].[Message]");
+                            sb1.Append("SELECT [answer] ");
+                            sb1.Append("FROM [single2double].[match_analysis]");
                             sb1.Append("Where [id]= '" + ChanData3 + "' AND [question]=" + "1");
                             String sql = sb1.ToString();
                             using (var cmd = new SqlCommand(sql, connection))
                             {
                                 input1 = (string)cmd.ExecuteScalar();
                             }
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -395,14 +410,15 @@ namespace Single2Double
                             connection.Open();
                             //撰寫query
                             StringBuilder sb2 = new StringBuilder();
-                            sb2.Append("SELECT [message] ");
-                            sb2.Append("FROM [dbo].[Message]");
+                            sb2.Append("SELECT [answer] ");
+                            sb2.Append("FROM [single2double].[match_analysis]");
                             sb2.Append("Where [id]= '" + ChanData3 + "' AND [question]=" + "2");
                             String sql = sb2.ToString();
                             using (var cmd = new SqlCommand(sql, connection))
                             {
                                 input2 = (string)cmd.ExecuteScalar();
                             }
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -419,14 +435,15 @@ namespace Single2Double
                             connection.Open();
                             //撰寫query
                             StringBuilder sb3 = new StringBuilder();
-                            sb3.Append("SELECT [message] ");
-                            sb3.Append("FROM [dbo].[Message]");
+                            sb3.Append("SELECT [answer] ");
+                            sb3.Append("FROM [single2double].[match_analysis]");
                             sb3.Append("Where [id]= '" + ChanData3 + "' AND [question]=" + "3");
                             String sql = sb3.ToString();
                             using (var cmd = new SqlCommand(sql, connection))
                             {
                                 input3 = (string)cmd.ExecuteScalar();
                             }
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -443,14 +460,15 @@ namespace Single2Double
                             connection.Open();
                             //撰寫query
                             StringBuilder sb4 = new StringBuilder();
-                            sb4.Append("SELECT [message] ");
-                            sb4.Append("FROM [dbo].[Message]");
+                            sb4.Append("SELECT [answer] ");
+                            sb4.Append("FROM [single2double].[match_analysis]");
                             sb4.Append("Where [id]= '" + ChanData3 + "' AND [question]=" + "4");
                             String sql = sb4.ToString();
                             using (var cmd = new SqlCommand(sql, connection))
                             {
                                 input4 = (string)cmd.ExecuteScalar();
                             }
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -467,14 +485,15 @@ namespace Single2Double
                             connection.Open();
                             //撰寫query
                             StringBuilder sb5 = new StringBuilder();
-                            sb5.Append("SELECT [message] ");
-                            sb5.Append("FROM [dbo].[Message]");
+                            sb5.Append("SELECT [answer] ");
+                            sb5.Append("FROM [single2double].[match_analysis]");
                             sb5.Append("Where [id]= '" + ChanData3 + "' AND [question]=" + "5");
                             String sql = sb5.ToString();
                             using (var cmd = new SqlCommand(sql, connection))
                             {
                                 input5 = (string)cmd.ExecuteScalar();
                             }
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -491,14 +510,15 @@ namespace Single2Double
                             connection.Open();
                             //撰寫query
                             StringBuilder sb6 = new StringBuilder();
-                            sb6.Append("SELECT [message] ");
-                            sb6.Append("FROM [dbo].[Message]");
+                            sb6.Append("SELECT [answer] ");
+                            sb6.Append("FROM [single2double].[match_analysis]");
                             sb6.Append("Where [id]= '" + ChanData3 + "' AND [question]=" + "6");
                             String sql = sb6.ToString();
                             using (var cmd = new SqlCommand(sql, connection))
                             {
                                 input6 = (string)cmd.ExecuteScalar();
                             }
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -515,14 +535,15 @@ namespace Single2Double
                             connection.Open();
                             //撰寫query
                             StringBuilder sb7 = new StringBuilder();
-                            sb7.Append("SELECT [message] ");
-                            sb7.Append("FROM [dbo].[Message]");
+                            sb7.Append("SELECT [answer] ");
+                            sb7.Append("FROM [single2double].[match_analysis]");
                             sb7.Append("Where [id]= '" + ChanData3 + "' AND [question]=" + "7");
                             String sql = sb7.ToString();
                             using (var cmd = new SqlCommand(sql, connection))
                             {
                                 input7 = (string)cmd.ExecuteScalar();
                             }
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -539,14 +560,15 @@ namespace Single2Double
                             connection.Open();
                             //撰寫query
                             StringBuilder sb8 = new StringBuilder();
-                            sb8.Append("SELECT [message] ");
-                            sb8.Append("FROM [dbo].[Message]");
+                            sb8.Append("SELECT [answer] ");
+                            sb8.Append("FROM [single2double].[match_analysis]");
                             sb8.Append("Where [id]= '" + ChanData3 + "' AND [question]=" + "8");
                             String sql = sb8.ToString();
                             using (var cmd = new SqlCommand(sql, connection))
                             {
                                 input8 = (string)cmd.ExecuteScalar();
                             }
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -562,14 +584,15 @@ namespace Single2Double
                             connection.Open();
                             //撰寫query
                             StringBuilder sb9 = new StringBuilder();
-                            sb9.Append("SELECT [message] ");
-                            sb9.Append("FROM [dbo].[Message]");
+                            sb9.Append("SELECT [answer] ");
+                            sb9.Append("FROM [single2double].[match_analysis]");
                             sb9.Append("Where [id]= '" + ChanData3 + "' AND [question]=" + "9");
                             String sql = sb9.ToString();
                             using (var cmd = new SqlCommand(sql, connection))
                             {
                                 input9 = (string)cmd.ExecuteScalar();
                             }
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
@@ -591,19 +614,20 @@ namespace Single2Double
                         {   //隨機選擇照片
                             Random rnd = new Random();
                             //目前資料庫的照片張數
-                            int rd = rnd.Next(1, 15);
+                            int rd = rnd.Next(1, 767);
                             //建立資料庫連線
                             connection.Open();
                             //撰寫query
                             StringBuilder sb = new StringBuilder();
-                            sb.Append("SELECT [url] ");
-                            sb.Append("FROM [dbo].[save_url]");
+                            sb.Append("SELECT [image_url] ");
+                            sb.Append("FROM [single2double].[beauty_image]");
                             sb.Append("Where [id]=" + rd);
                             String sql = sb.ToString();
                             using (var cmd = new SqlCommand(sql, connection))
                             {
                                 url = (string)cmd.ExecuteScalar();
                             }
+                            connection.Close();
                         }
                     }
                     catch (SqlException e)
