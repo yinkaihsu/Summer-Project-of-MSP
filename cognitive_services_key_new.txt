@@ -5,6 +5,6 @@ key: df30d486a01b4ee9bbf913a324795d62
 loser's personId: 6449c1a2-988b-46f7-b07a-da037c175f29
 winner's personId: 383b0c3a-cfc7-4e12-a992-0d7328cee0a0
 
-emotion
-API end point: https://westus.api.cognitive.microsoft.com/emotion/v1.0
+emotion API
+end point: https://westus.api.cognitive.microsoft.com/emotion/v1.0
 key: f09cc9201a0046cb821772ec16299798
