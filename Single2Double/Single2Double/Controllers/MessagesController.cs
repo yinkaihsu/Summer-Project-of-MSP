@@ -688,19 +688,27 @@ namespace Single2Double
                                 Confidence_s = Confidence_s - Confidence_ns;
                                 if (Confidence_s > 0)
                                 {
-                                    reply.Text = "預測此人為單身, 其機率比非單身高出 " + Confidence_s * 100 + "%!";
+                                    reply.Text = "預測您 ''單身'', 其機率比 ''不是單身'' 高出 " + Confidence_s * 100 + "%!";
                                     //reply.Text = "這個人應該是單身";
                                     //await connector.Conversations.ReplyToActivityAsync(reply);
                                 }
                                 if (Confidence_s < 0)
                                 {
-                                    reply.Text = "預測此人為非單身, 其機率比單身高出 " + Confidence_s * -100 + "%!";
+                                    reply.Text = "預測您 ''不是單身'', 其機率比 ''單身'' 高出 " + Confidence_s * -100 + "%!";
                                     //reply.Text = "這個人應該不是是單身";
                                     //await connector.Conversations.ReplyToActivityAsync(reply);
                                 }
                             }
                             // Console.WriteLine("Hit ENTER to exit...");
                             // Console.ReadLine();
+                        }
+                        else if (fbData.postback != null && fbData.postback.payload.StartsWith("Face"))
+                        {
+                            //辨識圖片
+                            var url = fbData.postback.payload.Split('>')[1];
+                            FaceServiceClient client = new FaceServiceClient("df30d486a01b4ee9bbf913a324795d62", "https://southeastasia.api.cognitive.microsoft.com/face/v1.0");
+                            var result = await client.DetectAsync(url, true, false, new FaceAttributeType[] { FaceAttributeType.Age, FaceAttributeType.Gender });
+                            reply.Text = $"預測您的年齡為 {result.Average(x => x.FaceAttributes.Age)} 歲!";
                         }
                     }
                 }
@@ -769,7 +777,7 @@ namespace Single2Double
                 Buttons = new List<CardAction>()
 
                 {
-                    //new CardAction(ActionTypes.PostBack, "男女生", value: $"Face>{url}"),
+                    new CardAction(ActionTypes.PostBack, "預測年齡", value: $"Face>{url}"),
 
                     new CardAction(ActionTypes.PostBack, "確認感情狀態", value: $"Analyze>{url}")
                 }
