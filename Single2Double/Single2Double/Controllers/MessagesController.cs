@@ -604,7 +604,7 @@ namespace Single2Double
                     await InvokeRequestResponseService(reply, input1, "20", input2, input3, input4, input5, input6, input7, input8, input9);
                     ///reply.Text = input1 + "20" + input2 + input3 + input4 + input5 + input6 + input7 + input8 + input9;
                 }
-                else if (activity.Text == "我好飢渴")
+                else if (activity.Text == "我好孤單")
                 {
                     string url = "";
 
@@ -643,7 +643,7 @@ namespace Single2Double
 
                     reply.Attachments.Add(att);
                 }
-                else if (activity.Text == "HISTORY_PAYLOAD")
+                else if (activity.Text == "我只是想打招呼...")
                 {
                     reply.Text = "你是不是很孤單啊? 別擔心, S2D永遠是你的好朋友呦~";
                 }
