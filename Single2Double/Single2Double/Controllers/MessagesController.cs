@@ -47,10 +47,10 @@ namespace Single2Double
         {
             //連接資料庫
             var cb = new SqlConnectionStringBuilder();
-            cb.DataSource = "s2d.database.windows.net";
+            cb.DataSource = "single2double.database.windows.net";
             cb.UserID = "yinkaihsu";
-            cb.Password = "Ian199412130@yahoo.com.tw";
-            cb.InitialCatalog = "single2double";
+            cb.Password = "ian199412130@yahoo.com.tw";
+            cb.InitialCatalog = "S2D";
 
             //var cb = new OdbcConnection("DRIVER={MySQL ODBC 5.3 unicode Driver}; Server=single2double.mysql.database.azure.com; Port=3306;" +
             //" Database=single2double; Uid=yinkaihsu@single2double; Pwd=Ian199412130@yahoo.com.tw; sslverify=0; Option=3;MULTI_STATEMENTS=1");
