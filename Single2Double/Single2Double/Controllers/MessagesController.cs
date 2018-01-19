@@ -658,14 +658,14 @@ namespace Single2Double
                         ttt.personGroupId = "loser";
                         ttt.personId = "6449c1a2-988b-46f7-b07a-da037c175f29";
                         Rootobject winer = new Rootobject();
-                        winer.personGroupId = "winer";
+                        winer.personGroupId = "winner";
                         winer.personId = "383b0c3a-cfc7-4e12-a992-0d7328cee0a0";
                         if (fbData.postback != null && fbData.postback.payload.StartsWith("Analyze"))
                         {
                             //辨識圖片
                             var url = fbData.postback.payload.Split('>')[1];
                             //reply.Text = $"{url}";
-                            FaceServiceClient client = new FaceServiceClient("df30d486a01b4ee9bbf913a324795d62", "https://southeastasia.api.cognitive.microsoft.com/face/v1.0");
+                            FaceServiceClient client = new FaceServiceClient("0a8700b757f44d2e9307914a800a11b1", "https://eastasia.api.cognitive.microsoft.com/face/v1.0");
                             var faces = await client.DetectAsync(
                                 url,
                                 true,
@@ -706,7 +706,7 @@ namespace Single2Double
                         {
                             //辨識圖片
                             var url = fbData.postback.payload.Split('>')[1];
-                            FaceServiceClient client = new FaceServiceClient("df30d486a01b4ee9bbf913a324795d62", "https://southeastasia.api.cognitive.microsoft.com/face/v1.0");
+                            FaceServiceClient client = new FaceServiceClient("0a8700b757f44d2e9307914a800a11b1", "https://eastasia.api.cognitive.microsoft.com/face/v1.0");
                             var result = await client.DetectAsync(url, true, false, new FaceAttributeType[] { FaceAttributeType.Age, FaceAttributeType.Gender });
                             reply.Text = $"預測您的年齡為 {result.Average(x => x.FaceAttributes.Age)} 歲!";
                         }
