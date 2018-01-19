@@ -656,10 +656,10 @@ namespace Single2Double
 
                         // ttt.faceId = faceid;
                         ttt.personGroupId = "loser";
-                        ttt.personId = "6449c1a2-988b-46f7-b07a-da037c175f29";
+                        ttt.personId = "8955d99f-7fd5-414a-acef-805b9971a4a6";
                         Rootobject winer = new Rootobject();
                         winer.personGroupId = "winner";
-                        winer.personId = "383b0c3a-cfc7-4e12-a992-0d7328cee0a0";
+                        winer.personId = "2ae5cb06-e58c-46d5-8f29-6cf1afd0dd81";
                         if (fbData.postback != null && fbData.postback.payload.StartsWith("Analyze"))
                         {
                             //辨識圖片
