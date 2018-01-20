@@ -7,8 +7,8 @@ Created and Powered by <font color="#006699">**Ian Hsu**</font> in MSP 12th
 
 ---
 
-## Structure
-架構
+## Structure of Project
+專案架構
 
 ----
 
@@ -35,7 +35,7 @@ MSP 12th 組員
 
 ---
 
-## Creative Idea
+## Creative Ideas
 創意內容發想
 
 ----
@@ -73,7 +73,7 @@ MSP 12th 組員
 
 ---
 
-## Implement & Demo 
+## Implementation & Demo 
 呈現方式
 
 ----
