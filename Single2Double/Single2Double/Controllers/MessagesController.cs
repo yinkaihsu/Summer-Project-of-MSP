@@ -652,6 +652,7 @@ namespace Single2Double
                     if (activity.ChannelId == "facebook")
                     {
                         var fbData = JsonConvert.DeserializeObject<FBChannelModel>(activity.ChannelData.ToString());
+                        /*
                         Rootobject ttt = new Rootobject();
 
                         // ttt.faceId = faceid;
@@ -660,11 +661,19 @@ namespace Single2Double
                         Rootobject winer = new Rootobject();
                         winer.personGroupId = "winner";
                         winer.personId = "2ae5cb06-e58c-46d5-8f29-6cf1afd0dd81";
+                        */
                         if (fbData.postback != null && fbData.postback.payload.StartsWith("Analyze"))
                         {
                             //辨識圖片
                             var url = fbData.postback.payload.Split('>')[1];
                             //reply.Text = $"{url}";
+                            // Custom Vision API
+
+                            // Code to be finished...................
+
+                            //string answer = await MakePredictionRequest(url);
+                            //reply.Text = answer;
+                            /*
                             FaceServiceClient client = new FaceServiceClient("0a8700b757f44d2e9307914a800a11b1", "https://eastasia.api.cognitive.microsoft.com/face/v1.0");
                             var faces = await client.DetectAsync(
                                 url,
@@ -699,6 +708,7 @@ namespace Single2Double
                                     //await connector.Conversations.ReplyToActivityAsync(reply);
                                 }
                             }
+                            */
                             // Console.WriteLine("Hit ENTER to exit...");
                             // Console.ReadLine();
                         }
@@ -759,6 +769,40 @@ namespace Single2Double
                 return Confidence;
             }
         }
+
+        private static byte[] GetImageAsByteArray(string imageFilePath)
+        {
+            FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
+            BinaryReader binaryReader = new BinaryReader(fileStream);
+            return binaryReader.ReadBytes((int)fileStream.Length);
+        }
+
+        // Custom Vision API
+        //Start
+        private static async Task MakePredictionRequest(string imageFilePath)
+        {
+            var client = new HttpClient();
+
+            // Request headers - replace this example key with your valid subscription key.
+            client.DefaultRequestHeaders.Add("Prediction-Key", "736c7bdde9ff49a0912eead949a3a23c");
+
+            // Prediction URL - replace this example URL with your valid prediction URL.
+            string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.1/Prediction/98da1daa-936e-4f53-bb91-714c7cffc10a/url";
+
+            HttpResponseMessage response;
+
+            // Request body. Try this sample with a locally stored image.
+            byte[] byteData = GetImageAsByteArray(imageFilePath);
+
+            using (var content = new ByteArrayContent(byteData))
+            {
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                response = await client.PostAsync(url, content);
+                Console.WriteLine(await response.Content.ReadAsStringAsync());
+            }
+        }
+
+        //Finish
 
         private void ImageTemplate(Activity reply, string url)
 
