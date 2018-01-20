@@ -7,6 +7,15 @@ Created and Powered by <font color="#006699">**Ian Hsu**</font> in MSP 12th
 
 ---
 
+## Structure
+架構
+
+----
+
+![](https://i.imgur.com/81IfrqR.png)
+
+---
+
 ## Team Members
 MSP 12th 組員
 
