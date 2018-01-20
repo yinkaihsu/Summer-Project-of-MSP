@@ -1,4 +1,0 @@
-face API
-end point: https://westcentralus.api.cognitive.microsoft.com/face/v1.0
-key 1: ae2cbfc27b254bd7a9922b74dce9257b
-key 2: 22a510b576054fe7a3187e0f75823bee

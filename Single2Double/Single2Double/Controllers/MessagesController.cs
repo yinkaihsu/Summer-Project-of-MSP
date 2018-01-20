@@ -652,7 +652,6 @@ namespace Single2Double
                     if (activity.ChannelId == "facebook")
                     {
                         var fbData = JsonConvert.DeserializeObject<FBChannelModel>(activity.ChannelData.ToString());
-                        /*
                         Rootobject ttt = new Rootobject();
 
                         // ttt.faceId = faceid;
@@ -661,7 +660,7 @@ namespace Single2Double
                         Rootobject winer = new Rootobject();
                         winer.personGroupId = "winner";
                         winer.personId = "2ae5cb06-e58c-46d5-8f29-6cf1afd0dd81";
-                        */
+
                         if (fbData.postback != null && fbData.postback.payload.StartsWith("Analyze"))
                         {
                             //辨識圖片
@@ -673,7 +672,7 @@ namespace Single2Double
 
                             //string answer = await MakePredictionRequest(url);
                             //reply.Text = answer;
-                            /*
+
                             FaceServiceClient client = new FaceServiceClient("0a8700b757f44d2e9307914a800a11b1", "https://eastasia.api.cognitive.microsoft.com/face/v1.0");
                             var faces = await client.DetectAsync(
                                 url,
@@ -708,7 +707,7 @@ namespace Single2Double
                                     //await connector.Conversations.ReplyToActivityAsync(reply);
                                 }
                             }
-                            */
+
                             // Console.WriteLine("Hit ENTER to exit...");
                             // Console.ReadLine();
                         }
@@ -742,9 +741,9 @@ namespace Single2Double
             Activity datareply = activity.CreateReply();
             ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "df30d486a01b4ee9bbf913a324795d62");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "0a8700b757f44d2e9307914a800a11b1");
 
-            var uri = "https://southeastasia.api.cognitive.microsoft.com/face/v1.0/verify?" + queryString;
+            var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/verify?" + queryString;
 
             HttpResponseMessage response;
 
