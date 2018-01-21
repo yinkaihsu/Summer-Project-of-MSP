@@ -34,6 +34,12 @@ for content in contents:
 Beauty_images_urls_list = []
 for x in Beauty_images_urls:
     for y in x:
-        if y.endswith('.jpg'):
+        if y.startswith(('https://i.imgur','http://i.imgur','https://imgur','http://imgur')) and y.endswith('.jpg'):
             Beauty_images_urls_list.append(y)
 #Beauty_images_urls_list
+
+# Output urls into Beauty_images_urls.csv
+OutputFile = open('Beauty_images_urls.csv', 'a')
+for url in Beauty_images_urls_list:
+    OutputFile.write("%s\n" % url)
+OutputFile.close()
