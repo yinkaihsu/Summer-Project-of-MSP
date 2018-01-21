@@ -614,7 +614,7 @@ namespace Single2Double
                         {   //隨機選擇照片
                             Random rnd = new Random();
                             //目前資料庫的照片張數
-                            int rd = rnd.Next(1, 767);
+                            int rd = rnd.Next(1, 7316);
                             //建立資料庫連線
                             connection.Open();
                             //撰寫query
