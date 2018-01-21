@@ -673,6 +673,7 @@ namespace Single2Double
                             //string answer = await MakePredictionRequest(url);
                             //reply.Text = answer;
 
+                            // verify face
                             FaceServiceClient client = new FaceServiceClient("0a8700b757f44d2e9307914a800a11b1", "https://eastasia.api.cognitive.microsoft.com/face/v1.0");
                             var faces = await client.DetectAsync(
                                 url,
@@ -708,6 +709,14 @@ namespace Single2Double
                                 }
                             }
 
+                            // add face
+                            Class4object newFace = new Class4object();
+                            newFace.url = url;
+                            string newFaceBody = JsonConvert.SerializeObject(newFace).ToString();
+                            string newAnswer = "";
+                            //newAnswer = await AddFace(newFaceBody, activity, "winner", "2ae5cb06-e58c-46d5-8f29-6cf1afd0dd81", newAnswer);
+                            //reply.Text = newAnswer;
+
                             // Console.WriteLine("Hit ENTER to exit...");
                             // Console.ReadLine();
                         }
@@ -732,7 +741,8 @@ namespace Single2Double
             return response;
         }
 
-        //verify
+        // Face API
+        //verify face
         private static async Task<float> MakeRequest(string body, Activity activity, string status, float Confidence)
         {
             var client = new HttpClient();
@@ -769,6 +779,46 @@ namespace Single2Double
             }
         }
 
+        //add face
+        private static async Task<string> AddFace(string body, Activity activity, string personGroupId, string personId, string Answer)
+        {
+            var client = new HttpClient();
+            var queryString = HttpUtility.ParseQueryString(string.Empty);
+            // Activity activity=new Activity();
+            Activity datareply = activity.CreateReply();
+            ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
+            // Request headers
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "0a8700b757f44d2e9307914a800a11b1");
+
+            var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/persongroups/" + personGroupId + "/persons/" + personId + "/persistedFaces";
+
+            HttpResponseMessage response;
+
+            // Request body
+            byte[] byteData = Encoding.UTF8.GetBytes(body);
+
+            //response = await client.PostAsync(uri, new StringContent(body, Encoding.UTF8, "application/json"));
+            //datareply.Text = await response.Content.ReadAsStringAsync();
+            //await connector.Conversations.ReplyToActivityAsync(datareply);
+
+            using (var content = new ByteArrayContent(byteData))
+            {
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                response = await client.PostAsync(uri, content);
+
+                datareply.Text = await response.Content.ReadAsStringAsync();
+                JObject rss = JObject.Parse(datareply.Text);
+                Answer = (string)rss["persistedFaceId"];
+                //Answer = uri;
+
+                //datareply.Text = $"他跟{status}的人的長相有 {Confidence} 的相似度";
+                //await connector.Conversations.ReplyToActivityAsync(datareply);
+                return Answer;
+            }
+        }
+
+        // Custom Vision API
+        //Start
         private static byte[] GetImageAsByteArray(string imageFilePath)
         {
             FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
@@ -776,8 +826,6 @@ namespace Single2Double
             return binaryReader.ReadBytes((int)fileStream.Length);
         }
 
-        // Custom Vision API
-        //Start
         private static async Task MakePredictionRequest(string imageFilePath)
         {
             var client = new HttpClient();
