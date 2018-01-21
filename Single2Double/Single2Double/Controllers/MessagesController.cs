@@ -633,7 +633,7 @@ namespace Single2Double
                     catch (SqlException e)
                     {
                         reply.Text = "沒成功";
-                        await connector.Conversations.ReplyToActivityAsync(reply);
+                        //await connector.Conversations.ReplyToActivityAsync(reply);
                     }
 
                     Attachment att = new Attachment();
@@ -646,6 +646,46 @@ namespace Single2Double
                 else if (activity.Text == "我只是想打招呼...")
                 {
                     reply.Text = "你是不是很孤單啊? 別擔心, S2D永遠是你的好朋友呦~";
+                }
+                else if (activity.Text.ToString().Split('>')[0] == "loser" || activity.Text.ToString().Split('>')[0] == "winner" || activity.Text.ToString().Split('>')[0] == "unknown")
+                {
+                    string personGroupId_input = "";
+                    string personId_input = "";
+                    string url = activity.Text.ToString().Split('>')[1];
+                    //reply.Text = url;
+
+                    if (activity.Text.ToString().Split('>')[0] == "loser")
+                    {
+                        // answer
+                        personGroupId_input = "loser";
+                        personId_input = "8955d99f-7fd5-414a-acef-805b9971a4a6";
+
+                        // add face
+                        Class4object newFace = new Class4object();
+                        newFace.url = url;
+                        string newFaceBody = JsonConvert.SerializeObject(newFace).ToString();
+                        string newAnswer = "";
+                        newAnswer = await AddFace(newFaceBody, activity, personGroupId_input, personId_input, newAnswer);
+                        reply.Text = "Thanks for your feedback!";
+                    }
+                    else if (activity.Text.ToString().Split('>')[0] == "winner")
+                    {
+                        // answer
+                        personGroupId_input = "winner";
+                        personId_input = "2ae5cb06-e58c-46d5-8f29-6cf1afd0dd81";
+
+                        // add face
+                        Class4object newFace = new Class4object();
+                        newFace.url = url;
+                        string newFaceBody = JsonConvert.SerializeObject(newFace).ToString();
+                        string newAnswer = "";
+                        newAnswer = await AddFace(newFaceBody, activity, personGroupId_input, personId_input, newAnswer);
+                        reply.Text = "Thanks for your feedback!";
+                    }
+                    else
+                    {
+                        reply.Text = "Thanks for your feedback!";
+                    }
                 }
                 else
                 {
@@ -709,14 +749,7 @@ namespace Single2Double
                                 }
                             }
 
-                            // add face
-                            Class4object newFace = new Class4object();
-                            newFace.url = url;
-                            string newFaceBody = JsonConvert.SerializeObject(newFace).ToString();
-                            string newAnswer = "";
-                            //newAnswer = await AddFace(newFaceBody, activity, "winner", "2ae5cb06-e58c-46d5-8f29-6cf1afd0dd81", newAnswer);
-                            //reply.Text = newAnswer;
-
+                            CreateButtonFace(reply, url);
                             // Console.WriteLine("Hit ENTER to exit...");
                             // Console.ReadLine();
                         }
@@ -815,6 +848,28 @@ namespace Single2Double
                 //await connector.Conversations.ReplyToActivityAsync(datareply);
                 return Answer;
             }
+        }
+
+        // Button for retraining FaceAPI model
+        private void CreateButtonFace(Activity reply, string url)
+        {
+            List<Attachment> att = new List<Attachment>();
+
+            att.Add(new HeroCard()
+
+            {
+                Title = "請問偵測者真實的身分為?",
+                Subtitle = "Feedbacks make us better!",
+                Buttons = new List<CardAction>()
+
+                {
+                    new CardAction(ActionTypes.PostBack, "單身 (Single)", value: $"loser>{url}"),
+                    new CardAction(ActionTypes.PostBack, "非單身 (Double)", value: $"winner>{url}"),
+                    new CardAction(ActionTypes.PostBack, "不知道 (Unknown)", value: $"unknown>{url}")
+                }
+            }.ToAttachment());
+
+            reply.Attachments = att;
         }
 
         // Custom Vision API

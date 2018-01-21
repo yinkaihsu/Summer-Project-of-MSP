@@ -1,8 +1,0 @@
-Face API
-end point: https://eastasia.api.cognitive.microsoft.com/face/v1.0
-key1: 0a8700b757f44d2e9307914a800a11b1
-key2: 78e311ca18db43d291b456003b92cadf
-
-Person Group
-winner's personId: 2ae5cb06-e58c-46d5-8f29-6cf1afd0dd81
-loser's personId: 8955d99f-7fd5-414a-acef-805b9971a4a6

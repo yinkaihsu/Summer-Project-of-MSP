@@ -1,0 +1,12 @@
+Face API
+end point: https://eastasia.api.cognitive.microsoft.com/face/v1.0
+key1: 0a8700b757f44d2e9307914a800a11b1
+key2: 78e311ca18db43d291b456003b92cadf
+
+
+Person Group
+winner's "personId": 2ae5cb06-e58c-46d5-8f29-6cf1afd0dd81
+winner's "persistedFaceIds": 27b058a5-54a9-4ce7-a13c-30dd7572d0f2, 89739b33-344a-47a1-a4ab-b2b8e3a660be, 8dcdc147-7901-4fbb-a25c-8a5e1e6cbe81, 94513759-d0a6-491d-8315-c5facb40198e, afa23e65-9762-44e6-aa8f-af8981817177, b28bbf34-dd71-41df-b68a-9be8bae84bb3, cb065eb1-3e40-4171-a7e6-c0fc5787e24a, daa373e6-52cd-42ef-b8fa-b24d5b4ca4fd, f1d20d55-e750-46b5-b4d6-d9471da08906, fcf14872-3ed3-4a3c-a100-b66800dd7c11
+
+loser's "personId": 8955d99f-7fd5-414a-acef-805b9971a4a6
+loser's "persistedFaceIds": 0228bdb6-48aa-456e-88d4-95410f7e2c57, 17fb2713-82a1-43cc-bf2e-36660d782765, 4896d21c-b3bb-4b77-bd47-fb0f6d32efb3, 5ac2a5cb-6627-4835-8f1d-501c70019086, 73d25cad-8903-4494-97a6-c113eefeb112, 7aae1661-4913-4d9a-8a4c-c73519f5af97, b0cf64a4-18ee-4f90-b565-5fe820a56a7f, cdeb8b56-5ef6-4e0d-8371-64aa4770ff83, cf7edf11-cf4f-4256-aefe-52afcefbba97, df77e097-2d21-4bd4-a28f-3c8f47d5392e
