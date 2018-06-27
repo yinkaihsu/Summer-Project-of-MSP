@@ -178,6 +178,7 @@
     <None Include="Properties\PublishProfiles\Single2Double - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Single2Double - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\Single2Double - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Single2Double20180410010127 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Single2DoubleApp - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

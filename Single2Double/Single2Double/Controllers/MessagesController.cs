@@ -47,10 +47,10 @@ namespace Single2Double
         {
             //連接資料庫
             var cb = new SqlConnectionStringBuilder();
-            cb.DataSource = "single2double.database.windows.net";
-            cb.UserID = "yinkaihsu";
-            cb.Password = "ian199412130@yahoo.com.tw";
-            cb.InitialCatalog = "S2D";
+            cb.DataSource = "single2doubles.database.windows.net";
+            cb.UserID = "yinkai.hsu";
+            cb.Password = "S2D@studentpartner.com";
+            cb.InitialCatalog = "single2double";
 
             //var cb = new OdbcConnection("DRIVER={MySQL ODBC 5.3 unicode Driver}; Server=single2double.mysql.database.azure.com; Port=3306;" +
             //" Database=single2double; Uid=yinkaihsu@single2double; Pwd=Ian199412130@yahoo.com.tw; sslverify=0; Option=3;MULTI_STATEMENTS=1");
@@ -658,7 +658,7 @@ namespace Single2Double
                     {
                         // answer
                         personGroupId_input = "loser";
-                        personId_input = "8955d99f-7fd5-414a-acef-805b9971a4a6";
+                        personId_input = "0c29f0b1-67fb-4fb6-8a98-e4f4e10ea314";
 
                         // add face
                         Class4object newFace = new Class4object();
@@ -672,7 +672,7 @@ namespace Single2Double
                     {
                         // answer
                         personGroupId_input = "winner";
-                        personId_input = "2ae5cb06-e58c-46d5-8f29-6cf1afd0dd81";
+                        personId_input = "20840698-741c-4c11-8bd4-498fe945e3e4";
 
                         // add face
                         Class4object newFace = new Class4object();
@@ -696,10 +696,10 @@ namespace Single2Double
 
                         // ttt.faceId = faceid;
                         ttt.personGroupId = "loser";
-                        ttt.personId = "8955d99f-7fd5-414a-acef-805b9971a4a6";
+                        ttt.personId = "0c29f0b1-67fb-4fb6-8a98-e4f4e10ea314";
                         Rootobject winer = new Rootobject();
                         winer.personGroupId = "winner";
-                        winer.personId = "2ae5cb06-e58c-46d5-8f29-6cf1afd0dd81";
+                        winer.personId = "20840698-741c-4c11-8bd4-498fe945e3e4";
 
                         if (fbData.postback != null && fbData.postback.payload.StartsWith("Analyze"))
                         {
@@ -714,7 +714,8 @@ namespace Single2Double
                             //reply.Text = answer;
 
                             // verify face
-                            FaceServiceClient client = new FaceServiceClient("0a8700b757f44d2e9307914a800a11b1", "https://eastasia.api.cognitive.microsoft.com/face/v1.0");
+                            // add key and end point
+                            FaceServiceClient client = new FaceServiceClient("15d83584051a46dcbd98ec939455f981", "https://eastasia.api.cognitive.microsoft.com/face/v1.0");
                             var faces = await client.DetectAsync(
                                 url,
                                 true,
@@ -757,7 +758,7 @@ namespace Single2Double
                         {
                             //辨識圖片
                             var url = fbData.postback.payload.Split('>')[1];
-                            FaceServiceClient client = new FaceServiceClient("0a8700b757f44d2e9307914a800a11b1", "https://eastasia.api.cognitive.microsoft.com/face/v1.0");
+                            FaceServiceClient client = new FaceServiceClient("15d83584051a46dcbd98ec939455f981", "https://eastasia.api.cognitive.microsoft.com/face/v1.0");
                             var result = await client.DetectAsync(url, true, false, new FaceAttributeType[] { FaceAttributeType.Age, FaceAttributeType.Gender });
                             reply.Text = $"預測您的年齡為 {result.Average(x => x.FaceAttributes.Age)} 歲!";
                         }
@@ -784,7 +785,7 @@ namespace Single2Double
             Activity datareply = activity.CreateReply();
             ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "0a8700b757f44d2e9307914a800a11b1");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "15d83584051a46dcbd98ec939455f981");
 
             var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/verify?" + queryString;
 
@@ -821,7 +822,7 @@ namespace Single2Double
             Activity datareply = activity.CreateReply();
             ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "0a8700b757f44d2e9307914a800a11b1");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "15d83584051a46dcbd98ec939455f981");
 
             var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/persongroups/" + personGroupId + "/persons/" + personId + "/persistedFaces";
 
@@ -1066,7 +1067,7 @@ namespace Single2Double
             att.Add(new HeroCard()
 
             {
-                Title = "How interested are you in Gaming?)",
+                Title = "How interested are you in Gaming?",
                 Subtitle = "(1=not at all, 10 = highly)",
                 Buttons = new List<CardAction>()
 
